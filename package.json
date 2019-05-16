@@ -1,5 +1,6 @@
 {
   "name": "drupal-libraries-webpack-plugin",
+  "description": "Generates a Drupal asset library file for a webpack build.",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
