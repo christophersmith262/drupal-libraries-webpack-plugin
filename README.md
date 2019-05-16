@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/christophersmith262/drupal-libraries-webpack-plugin.svg?branch=master)](https://travis-ci.org/christophersmith262/drupal-libraries-webpack-plugin)
 [![Coverage Status](https://coveralls.io/repos/github/christophersmith262/drupal-libraries-webpack-plugin/badge.svg?branch=master)](https://coveralls.io/github/christophersmith262/drupal-libraries-webpack-plugin?branch=master)
+[![npm version](https://img.shields.io/npm/v/drupal-libraries-webpack-plugin.svg?style=flat)](https://www.npmjs.com/package/drupal-libraries-webpack-plugin)
 
 <div align="center">
   <!-- replace with accurate logo e.g from https://worldvectorlogo.com/ -->
