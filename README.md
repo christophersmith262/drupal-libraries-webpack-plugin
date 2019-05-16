@@ -20,6 +20,8 @@ npm install --save-dev drupal-libraries-webpack-plugin
 
 <h2 align="center">Usage</h2>
 
+**webpack.config.js**
+
 ```js
 module.exports = {
   plugins: [
