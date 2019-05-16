@@ -3,15 +3,15 @@ const DrupalLibrariesPlugin = require('../').DrupalLibrariesPlugin,
 
 test('Default name generator handles invalid library names', async () => {
   const run = DrupalLibrariesPlugin.defaults.nameGenerator
-  await expect(run({ name: 'test' })).toBe('test')
-  await expect(run({ name: 'test~~' })).toBe('test')
-  await expect(run({ name: 'test~bundle' })).toBe('test-bundle')
-  await expect(run({ name: 'test-it1' })).toBe('test-it1')
-  await expect(run({ name: 'test_it1' })).toBe('test_it1')
-  await expect(run({ name: 'test//it1' })).toBe('test-it1')
+  await expect(await run({ name: 'test' })).toBe('test')
+  await expect(await run({ name: 'test~~' })).toBe('test')
+  await expect(await run({ name: 'test~bundle' })).toBe('test-bundle')
+  await expect(await run({ name: 'test-it1' })).toBe('test-it1')
+  await expect(await run({ name: 'test_it1' })).toBe('test_it1')
+  await expect(await run({ name: 'test//it1' })).toBe('test-it1')
 
-  await expect(run({ name: 'test', hash: '123' })).toBe('test')
-  await expect(run({ name: null, hash: '123' })).toBe('123')
+  await expect(await run({ name: 'test', hash: '123' })).toBe('test')
+  await expect(await run({ name: null, hash: '123' })).toBe('123')
 })
 
 test('Plugin instantiates without error', async () => {
@@ -26,7 +26,7 @@ test('Plugin has correct default values', async () => {
   await expect(plugin.opts.rules).toBe(DrupalLibrariesPlugin.defaults.rules)
   await expect(plugin.opts.prepareFile).toBe(DrupalLibrariesPlugin.defaults.prepareFile)
 
-  const defaultPaths = plugin.opts.path(result, metadata)
+  const defaultPaths = await plugin.opts.path(result, metadata)
   await expect(defaultPaths.length).toBe(1)
   await expect(defaultPaths[0].targetPath).toBe('webpack.libraries.yml')
   await expect(defaultPaths[0].content).toBe(result)
