@@ -1,0 +1,4 @@
+/webpack.libraries.yml
+/node_modules
+/coverage
+.tmp
