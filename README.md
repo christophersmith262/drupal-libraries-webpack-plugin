@@ -31,6 +31,16 @@ module.exports = {
 };
 ```
 
+By default, when you compile webpack, the drupal library file will be generated to 'webpack.libraries.yml'.
+
+The plugin will automatically figure out what libraries need to depend on other libraries based on the final webpack chunks.
+
+You can explicitly add a Drupal library dependency to module by using a special `require` statement:
+
+```js
+require('@drupal(core/jquery)')
+```
+
 ### Configuration
 
 #### `path`
@@ -84,11 +94,52 @@ module.exports = {
 };
 ```
 
-#### `prepareFile` function example
+#### `nameGenerator`
 
 Type: `Function`
 
-Default: `DrupalLibrariesPlugin.defaults.prepareFile'`
+Default: `nameGenerator`
+
+Generates a library name for a chunk.
+
+#### Minimal example
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  plugins: [
+  	new DrupalLibrariesPlugin({
+  	  nameGenerator: chunk => chunk.hash
+  	})
+  ],
+};
+```
+
+#### `requirePattern`
+
+Type: `String`
+
+Default: `/^@drupal\(([^\)]+)\)$/`
+
+The pattern to use for detecting drupal library dependencies.
+
+```js
+module.exports = {
+  plugins: [
+  	new DrupalLibrariesPlugin({
+  	  // always use the chunk hash as the library name.
+  	  libraryPattern: /^(jquery|/
+  	})
+  ],
+};
+```
+
+#### `prepareFile`
+
+Type: `Function`
+
+Default: `DrupalLibrariesPlugin.defaults.prepareFile`
 
 Prepares a library file that is about to be written.
 
@@ -99,6 +150,10 @@ module.exports = {
   plugins: [
   	new DrupalLibrariesPlugin({
   	  prepareFile: (file, compiler, compilation) => {
+  	    // Add an extra entry to the file when outputting
+  	    file.content['external'] = {
+  	      remote: 'https://external-library.js',
+  	    }
   	    return DupalLibrariesPlugin.defaults.prepareFile(file, compiler, compilation)
   	  },
   	})
