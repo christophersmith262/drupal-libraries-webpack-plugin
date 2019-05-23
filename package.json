@@ -9,7 +9,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "yaml": "^1.5.1"
+    "yaml": "^1.6.0"
   },
   "devDependencies": {
     "coveralls": "^3.0.3",
