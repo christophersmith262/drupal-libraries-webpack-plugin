@@ -193,7 +193,7 @@ class StaticVersionLibraryGenerator extends DrupalLibraryEntryGenerator {
 module.exports = {
   plugins: [
   	new DrupalLibrariesPlugin({
-  	  libraryEntryGenerator: new StaticVersionLibraryGenerator('2.0),
+  	  libraryEntryGenerator: new StaticVersionLibraryGenerator('2.0'),
   	})
   ],
 };
