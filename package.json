@@ -1,13 +1,24 @@
 {
   "name": "drupal-libraries-webpack-plugin",
   "description": "Generates a Drupal asset library file for a webpack build.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
+  "homepage": "https://github.com/christophersmith262/drupal-libraries-webpack-plugin",
+  "bugs": "https://github.com/christophersmith262/drupal-libraries-webpack-plugin/issues",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/christophersmith262/drupal-libraries-webpack-plugin.git"
+  },
+  "keywords": [
+    "drupal",
+    "libraries",
+    "webpack"
+  ],
   "dependencies": {
     "yaml": "^1.6.0"
   },
