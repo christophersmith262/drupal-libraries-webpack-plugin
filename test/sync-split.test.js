@@ -28,6 +28,33 @@ test('Tracks a shared synchronous webpack split', async () => {
   })
 })
 
+test('Tracks a shared synchronous webpack split using importfrom', async () => {
+  const result = (await runWebpack({
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          commons: {
+            name: 'commons',
+            chunks: 'all',
+            minChunks: 1,
+            minSize: 0,
+          }
+        }
+      }
+    },
+    entry: {
+      'importsfrom1': path.resolve(__dirname, './fixtures/importsfrom1.es6.js'),
+      'importsfrom2': path.resolve(__dirname, './fixtures/importsfrom2.es6.js'),
+    },
+  })).result
+
+  expect(result).toEqual({
+    importsfrom1: { version: '1.x', js: { 'importsfrom1.js': {} }, dependencies: ['commons'] },
+    importsfrom2: { version: '1.x', js: { 'importsfrom2.js': {} }, dependencies: ['commons'] },
+    commons: { version: '1.x', js: { 'commons.js': {} } },
+  })
+})
+
 test('Tracks a shared runtime chunk', async () => {
   const result = (await runWebpack({
     optimization: {
