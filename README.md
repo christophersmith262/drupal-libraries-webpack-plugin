@@ -94,6 +94,8 @@ module.exports = {
 };
 ```
 
+------------------------------------------------------------------------
+
 #### `nameGenerator`
 
 Type: `Function`
@@ -116,6 +118,8 @@ module.exports = {
 };
 ```
 
+------------------------------------------------------------------------
+
 #### `requirePattern`
 
 Type: `String`
@@ -134,6 +138,8 @@ module.exports = {
   ],
 };
 ```
+
+------------------------------------------------------------------------
 
 #### `prepareFile`
 
@@ -156,6 +162,38 @@ module.exports = {
   	    }
   	    return DupalLibrariesPlugin.defaults.prepareFile(file, compiler, compilation)
   	  },
+  	})
+  ],
+};
+```
+
+------------------------------------------------------------------------
+
+#### `libraryEntryGenerator`
+
+Type: `DrupalLibraryEntryGenerator`
+
+Default: `DrupalLibraryEntryGenerator`
+
+Generates a flat Drupal library entry as a javascript object from a `DrupalLibraryMetadata` object.
+
+**webpack.config.js**
+
+```js
+class StaticVersionLibraryGenerator extends DrupalLibraryEntryGenerator {
+  constructor(version) {
+    this.version = version
+  }
+  
+  async versionGenerator(metadata) {
+    return this.version
+  }
+}
+
+module.exports = {
+  plugins: [
+  	new DrupalLibrariesPlugin({
+  	  libraryEntryGenerator: new StaticVersionLibraryGenerator('2.0),
   	})
   ],
 };
