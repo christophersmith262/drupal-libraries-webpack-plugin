@@ -122,7 +122,7 @@ module.exports = {
 
 #### `requirePattern`
 
-Type: `String`
+Type: `RegExp`
 
 Default: `/^@drupal\(([^\)]+)\)$/`
 
@@ -132,8 +132,8 @@ The pattern to use for detecting drupal library dependencies.
 module.exports = {
   plugins: [
   	new DrupalLibrariesPlugin({
-  	  // always use the chunk hash as the library name.
-  	  libraryPattern: /^(jquery|/
+  	  // Only pick up require('jquery') or require('Drupal') statements.
+  	  libraryPattern: /^(jquery|Drupal)$/
   	})
   ],
 };
