@@ -23,7 +23,7 @@
     "yaml": "^1.6.0"
   },
   "devDependencies": {
-    "coveralls": "^3.0.3",
+    "coveralls": "^3.0.9",
     "css-loader": "^3.0.0",
     "jest": "^24.8.0",
     "mini-css-extract-plugin": "^0.8.0",
