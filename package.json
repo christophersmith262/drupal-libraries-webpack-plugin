@@ -20,6 +20,7 @@
     "webpack"
   ],
   "dependencies": {
+    "mkdirp": "^1.0.4",
     "yaml": "^1.6.0"
   },
   "devDependencies": {
