@@ -1,4 +1,4 @@
-const DrupalLibraryModule = require('../lib/DrupalLibraryModule')
+const DrupalLibraryModule = require('../').DrupalLibraryModule
 
 test('DrupalLibraryModule instantiates without error', async () => {
   await expect(() => new DrupalLibraryModule()).not.toThrow()

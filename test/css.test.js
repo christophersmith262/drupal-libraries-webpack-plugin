@@ -1,6 +1,6 @@
 const path = require('path'),
   MiniCssExtractPlugin = require('mini-css-extract-plugin'),
-  DrupalLibrariesPlugin = require('../').DrupalLibrariesPlugin,
+  DrupalLibrariesPlugin = require('../'),
   runWebpack = require('./lib/webpack-wrapper')
 
 test('Adds css assets to libraries', async () => {

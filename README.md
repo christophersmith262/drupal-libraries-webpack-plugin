@@ -13,6 +13,8 @@
 
 This plugin generates a Drupal asset library file based on a webpack build.
 
+It requires webpack 5 to work. For webpack 4 use the `1.x` version of this plugin.
+
 <h2 align="center">Install</h2>
 
 ```bash
@@ -24,6 +26,8 @@ npm install --save-dev drupal-libraries-webpack-plugin
 **webpack.config.js**
 
 ```js
+const DrupalLibrariesPlugin = require('drupal-libraries-webpack-plugin');
+
 module.exports = {
   plugins: [
   	new DrupalLibrariesPlugin()
@@ -73,7 +77,7 @@ Split a library into multiple library files.
 module.exports = {
   plugins: [
   	new DrupalLibrariesPlugin({
-  	  	
+
   	  path: (library, metadata) => {
   	    const lib1 = new DrupalLibraryFile('a.libraries.yml'),
   	    	lib2 = new DrupalLibraryFile('webpack.libraries.yml')
@@ -86,7 +90,7 @@ module.exports = {
   	        lib2.add(name, library, metadata)
   	      }
   	    })
-  	    
+
   	    return [lib1, lib2]
   	  }
   	})
@@ -184,7 +188,7 @@ class StaticVersionLibraryGenerator extends DrupalLibraryEntryGenerator {
   constructor(version) {
     this.version = version
   }
-  
+
   async versionGenerator(metadata) {
     return this.version
   }

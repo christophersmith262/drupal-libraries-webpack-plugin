@@ -1,6 +1,6 @@
 const webpack = require('webpack'),
   path = require('path'),
-  DrupalLibrariesPlugin = require('../../').DrupalLibrariesPlugin
+  DrupalLibrariesPlugin = require('../../')
 
 module.exports = async (webpackOpts, pluginOpts, extraPlugins) => {
   extraPlugins = extraPlugins || []
