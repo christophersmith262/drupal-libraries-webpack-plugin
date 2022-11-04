@@ -1,4 +1,4 @@
-const DrupalLibrariesPlugin = require('../').DrupalLibrariesPlugin,
+const DrupalLibrariesPlugin = require('../'),
   DrupalLibraryEntryGenerator = require('../').DrupalLibraryEntryGenerator
 
 test('Default name generator handles invalid library names', async () => {
