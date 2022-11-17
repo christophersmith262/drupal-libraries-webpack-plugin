@@ -30,7 +30,7 @@ const DrupalLibrariesPlugin = require('drupal-libraries-webpack-plugin');
 
 module.exports = {
   plugins: [
-  	new DrupalLibrariesPlugin()
+    new DrupalLibrariesPlugin()
   ],
 };
 ```
@@ -43,6 +43,14 @@ You can explicitly add a Drupal library dependency to module by using a special 
 
 ```js
 require('@drupal(core/jquery)')
+```
+
+Drupal libraries must be added as [external dependencies](https://webpack.js.org/configuration/externals/) in your webpack configuration:
+
+```js
+externals: {
+  '@drupal(drupal/core)': 'Drupal'
+}
 ```
 
 ### Configuration
@@ -137,7 +145,7 @@ module.exports = {
   plugins: [
   	new DrupalLibrariesPlugin({
   	  // Only pick up require('jquery') or require('Drupal') statements.
-  	  libraryPattern: /^(jquery|Drupal)$/
+  	  requirePattern: /^(jquery|Drupal)$/
   	})
   ],
 };

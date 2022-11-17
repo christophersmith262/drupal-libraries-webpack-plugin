@@ -6,6 +6,9 @@ test('Generates a library entry for @drupal(core/drupal)', async () => {
     entry: {
       'require-drupal': path.resolve(__dirname, './fixtures/require-drupal.es6.js'),
     },
+    externals: {
+      '@drupal(drupal/core)': 'Drupal'
+    }
   })).result
 
   expect(result).toEqual({
