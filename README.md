@@ -137,7 +137,7 @@ module.exports = {
   plugins: [
   	new DrupalLibrariesPlugin({
   	  // Only pick up require('jquery') or require('Drupal') statements.
-  	  libraryPattern: /^(jquery|Drupal)$/
+  	  requirePattern: /^(jquery|Drupal)$/
   	})
   ],
 };
