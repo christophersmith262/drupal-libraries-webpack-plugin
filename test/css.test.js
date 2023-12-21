@@ -28,7 +28,6 @@ test('Adds css assets to libraries', async () => {
 
   expect(result).toEqual({
     'css-include': {
-      version: '1.x',
       css: { theme: { 'css-include.css': {} } },
       js: { 'css-include.js': {} },
     },

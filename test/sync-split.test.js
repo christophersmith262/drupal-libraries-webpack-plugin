@@ -22,9 +22,9 @@ test('Tracks a shared synchronous webpack split', async () => {
   })).result
 
   expect(result).toEqual({
-    requires1: { version: '1.x', js: { 'requires1.js': {} }, dependencies: ['commons'] },
-    requires2: { version: '1.x', js: { 'requires2.js': {} }, dependencies: ['commons'] },
-    commons: { version: '1.x', js: { 'commons.js': {} } },
+    requires1: { js: { 'requires1.js': {} }, dependencies: ['commons'] },
+    requires2: { js: { 'requires2.js': {} }, dependencies: ['commons'] },
+    commons: { js: { 'commons.js': {} } },
   })
 })
 
@@ -49,9 +49,9 @@ test('Tracks a shared synchronous webpack split using importfrom', async () => {
   })).result
 
   expect(result).toEqual({
-    importsfrom1: { version: '1.x', js: { 'importsfrom1.js': {} }, dependencies: ['commons'] },
-    importsfrom2: { version: '1.x', js: { 'importsfrom2.js': {} }, dependencies: ['commons'] },
-    commons: { version: '1.x', js: { 'commons.js': {} } },
+    importsfrom1: { js: { 'importsfrom1.js': {} }, dependencies: ['commons'] },
+    importsfrom2: { js: { 'importsfrom2.js': {} }, dependencies: ['commons'] },
+    commons: { js: { 'commons.js': {} } },
   })
 })
 
@@ -67,8 +67,8 @@ test('Tracks a shared runtime chunk', async () => {
   })).result
 
   expect(result).toEqual({
-    a: { version: '1.x', js: { 'a.js': {} }, dependencies: ['runtime'] },
-    b: { version: '1.x', js: { 'b.js': {} }, dependencies: ['runtime'] },
-    runtime: { version: '1.x', js: { 'runtime.js': {} } }
+    a: { js: { 'a.js': {} }, dependencies: ['runtime'] },
+    b: { js: { 'b.js': {} }, dependencies: ['runtime'] },
+    runtime: { js: { 'runtime.js': {} } }
   })
 })

@@ -9,7 +9,7 @@ test('Tracks a single entrypoint', async () => {
   })).result
 
   await expect(result).toEqual({
-    a: { version: '1.x', js: { 'a.js': {} } },
+    a: { js: { 'a.js': {} } },
   })
 })
 
@@ -22,7 +22,7 @@ test('Tracks a multiple entrypoints', async () => {
   })).result
 
   await expect(result).toEqual({
-    a: { version: '1.x', js: { 'a.js': {} } },
-    b: { version: '1.x', js: { 'b.js': {} } },
+    a: { js: { 'a.js': {} } },
+    b: { js: { 'b.js': {} } },
   })
 })

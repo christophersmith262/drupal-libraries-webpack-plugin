@@ -16,7 +16,7 @@ test('Tracks a shared synchronous webpack split', async () => {
   })).result
 
   expect(result).toEqual({
-    imports1: { version: '1.x', js: { 'imports1.js': {} } },
-    imports2: { version: '1.x', js: { 'imports2.js': {} } },
+    imports1: { js: { 'imports1.js': {} } },
+    imports2: { js: { 'imports2.js': {} } },
   })
 })

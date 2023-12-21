@@ -13,7 +13,6 @@ test('Generates a library entry for @drupal(core/drupal)', async () => {
 
   expect(result).toEqual({
     'require-drupal': {
-      version: '1.x',
       js: { 'require-drupal.js': {} },
       dependencies: [ 'drupal/core' ],
     },

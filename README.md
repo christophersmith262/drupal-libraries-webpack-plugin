@@ -172,7 +172,7 @@ module.exports = {
   	    file.content['external'] = {
   	      remote: 'https://external-library.js',
   	    }
-  	    return DupalLibrariesPlugin.defaults.prepareFile(file, compiler, compilation)
+  	    return DrupalLibrariesPlugin.defaults.prepareFile(file, compiler, compilation)
   	  },
   	})
   ],
